@@ -1,0 +1,13 @@
+[
+{
+  "name": "A really cool thing",
+  "description": "This is a really cool thing"
+},
+{
+  "name": "Another really cool thing",
+  "description": "This is a another really cool thing"
+},
+{ "name": "Yet another really cool thing",
+  "description": "This is yet another really cool thing"
+}
+]

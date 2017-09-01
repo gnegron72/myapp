@@ -1,0 +1,15 @@
+{
+  "name": "myapp",
+  "version": "0.0.1",
+  "description": "Myapp",
+  "author": "Gabriel Negron <gnegron72@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.15.4",
+    "mongoose": "^4.11.9",
+    "body-parser": "^1.17.2"
+  }
+}
