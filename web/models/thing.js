@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
 const thingoneSchema = new Schema(
   {
     name: String,
@@ -8,4 +7,9 @@ const thingoneSchema = new Schema(
   }
 );
 
-module.exports = mongoose.model("Thing", thingoneSchema);
+module.exports.Thing = class {
+
+
+  const model = mongoose.model("Thing", thingoneSchema);
+
+}

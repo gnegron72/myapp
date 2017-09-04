@@ -3,7 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const Thing = require('./models/thingone.js');
+const Thing = require('./models/thing.js');
 
 // Constants
 const PORT = 8080;
@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
   console.log('Getting the things.\n');
-  Thing.find({}, function(err, things) {
+  Thing.model.find({}, function(err, things) {
     if (err) throw err;
     res.send(things);
   });
@@ -34,8 +34,8 @@ app.post('/', function(req, res) {
     name: req.body.name,
     description: req.body.description
   };
-  
-  Thing.create(newThing);
+
+  Thing.model.create(newThing);
   res.json(req.body);
   console.log("Done!");
 });
