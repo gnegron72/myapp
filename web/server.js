@@ -16,7 +16,11 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // App
 const app = express();
+var api = require("./routes/thing");
 app.use(bodyParser.json());
+app.use("/api", api);
+
+/*
 
 app.get('/', function(req, res) {
   console.log('Getting the things.\n');
@@ -25,6 +29,7 @@ app.get('/', function(req, res) {
     res.send(things);
   });
 });
+*/
 
 app.post('/', function(req, res) {
   console.log("Posting a new thing.");
