@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
   console.log('Getting the things.\n');
-  Thing.model.find({}, function(err, things) {
+  Thing.find({}, function(err, things) {
     if (err) throw err;
     res.send(things);
   });
@@ -28,16 +28,12 @@ app.get('/', function(req, res) {
 
 app.post('/', function(req, res) {
   console.log("Posting a new thing.");
-  console.log(req.body);
-
   var newThing = {
     name: req.body.name,
     description: req.body.description
   };
-
-  Thing.model.create(newThing);
+  Thing.create(newThing);
   res.json(req.body);
-  console.log("Done!");
 });
 
 app.listen(PORT, HOST);
