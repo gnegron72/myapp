@@ -1,5 +1,9 @@
 var Thing = require("../models/thing.js");
 
 exports.thing_list = function(req, res) {
-  res.send('NOT IMPLEMENTED: Thing list');
+  console.log('Getting the things.\n');
+  Thing.find({}, function(err, things) {
+    if (err) throw err;
+    res.send(things);
+  });
 };
