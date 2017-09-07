@@ -3,6 +3,7 @@ var router = express.Router();
 
 var thingController = require('../controllers/thingController.js');
 
-router.get('/', thingController.thing_list);
+router.get('/thing', thingController.getThings);
+router.post('/thing', thingController.createThing);
 
 module.exports = router;

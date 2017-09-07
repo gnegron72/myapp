@@ -16,30 +16,14 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // App
 const app = express();
-var api = require("./routes/thing");
+app.use(express.static(__dirname + "/public"));
+
+var api = require("./routes/api.js");
 app.use(bodyParser.json());
 app.use("/api", api);
 
-/*
-
-app.get('/', function(req, res) {
-  console.log('Getting the things.\n');
-  Thing.find({}, function(err, things) {
-    if (err) throw err;
-    res.send(things);
-  });
-});
-*/
-
-app.post('/', function(req, res) {
-  console.log("Posting a new thing.");
-  var newThing = {
-    name: req.body.name,
-    description: req.body.description
-  };
-  Thing.create(newThing);
-  res.json(req.body);
-});
+var index = require("./routes/index.js");
+app.use("/", index);
 
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
