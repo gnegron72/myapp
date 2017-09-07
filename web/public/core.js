@@ -17,7 +17,7 @@ myapp.controller("thingController", function thingController($scope, $http) {
         .then(function(response) {
           var data = response.data;
             $scope.formData = {}; // clear the form so our user is ready to enter another
-            $scope.things = data;
+            $scope.things.push(data);
             console.log(data);
         });
     };
