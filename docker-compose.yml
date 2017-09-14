@@ -1,7 +1,7 @@
 version: '3.2'
 services:
-  web:
-    build: ./web
+  api:
+    build: ./api
     ports:
       - "8080:8080"
     links:
@@ -10,8 +10,11 @@ services:
     build: ./db
     ports:
       - "27017:27017"
-
-  #db-seed:
-  #  build: ./db-seed
-  #  links:
-  #    - db
+  db-seed:
+    build: ./db-seed
+    links:
+      - db
+  client:
+    build: ./client
+    ports:
+      - "4200:4200"
