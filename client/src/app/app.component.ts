@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  templateUrl: './app.component.2.html',
   styleUrls: ['./app.component.css'],
   providers: [ThingService]
 })

@@ -1,0 +1,16 @@
+<div class="container-fluid">
+
+    <!-- HEADER AND THINGS COUNT -->
+    <div class="jumbotron text-center mt-5">
+        <h1>I love all the things! <span class="badge badge-pill badge-primary" *ngIf="ithings">{{ithings.length}}</span></h1>
+    </div>
+
+    <div class="card mb-2" *ngFor="let thing of ithings">
+      <div class="card-body">
+        <h4 class="card-title">{{thing._id}}</h4>
+        <h6 class="card-subtitle">{{thing.name}}</h6>
+        <p class="card-text">{{thing.description}}</p>
+      </div>
+    </div>
+
+  </div>
