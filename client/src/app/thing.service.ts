@@ -7,10 +7,11 @@ import { IThing } from './thing';
 
 @Injectable()
 export class ThingService {
+
    private _thingurl='http://192.168.99.100:8080/api/thing';
 
-
-   constructor(private _http: Http){}
+   constructor(private _http: Http){
+   }
 
    getThings(): Observable<IThing[]> {
       return this._http.get(this._thingurl)

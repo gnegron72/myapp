@@ -2,19 +2,20 @@
 
     <!-- HEADER AND THINGS COUNT -->
     <div class="jumbotron text-center">
-        <h1>I love all the things! <span class="label label-info"></span></h1>
+        <h1>I love all the things! <span class="label label-info" *ngIf="ithings">{{ithings.length}}</span></h1>
     </div>
 
-    <!-- THINGS LIST -->
-    <div id="things-list" class="row">
-        <div class="col-sm-4 col-sm-offset-4">
-            <!-- LOOP OVER THE THINGS IN $scope.things -->
-            <div *ngFor = "let thing of ithings">
-                <label>
-                    {{ thing.name }}: {{ thing.description }}
-                </label>
-            </div>
-        </div>
-    </div>
+    <table class="table table-striped">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      <tr *ngFor="let thing of ithings">
+        <td>{{thing._id}}</td>
+        <td>{{thing.name}}</td>
+        <td>{{thing.description}}</td>
+      </tr>
+    </table>
 
   </div>

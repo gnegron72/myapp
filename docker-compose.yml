@@ -10,10 +10,10 @@ services:
     build: ./db
     ports:
       - "27017:27017"
-  db-seed:
-    build: ./db-seed
-    links:
-      - db
+  #db-seed:
+  #  build: ./db-seed
+  #  links:
+  #    - db
   client:
     build: ./client
     ports:

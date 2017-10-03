@@ -11,6 +11,7 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./app.component.css'],
   providers: [ThingService]
 })
+
 export class AppComponent {
   ithings: IThing[];
   constructor(private _thing: ThingService) {
