@@ -13,7 +13,8 @@
             <p class="card-text">{{thing.description}}</p>
           </div>
           <div class="col-1 float-right">
-            <a href="#"><i class="material-icons md-18">delete</i></a>
+            <!--i class="material-icons md-18" (click)="deleteThing(thing)">delete</i-->
+            <input (click)="deleteThing(thing)" class="btn btn-primary" type="button" value="Delete">
           </div>
         </div>
       </div>

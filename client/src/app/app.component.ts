@@ -14,11 +14,16 @@ import 'rxjs/add/operator/map';
 
 export class AppComponent {
   ithings: IThing[];
-  constructor(private _thing: ThingService) {
-  }
+  constructor(private _thingService: ThingService) {
+}
 
   ngOnInit() : void {
-     this._thing.getThings()
-     .subscribe(ithings => this.ithings = ithings);
+     this._thingService.getThings().subscribe(ithings => this.ithings = ithings);
+  }
+
+
+  deleteThing(thing) : void {
+    console.log('deleteThing()');
+    this._thingService.deleteThing(thing);
   }
 }

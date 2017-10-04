@@ -17,3 +17,12 @@ exports.createThing = function(req, res) {
   Thing.create(newThing);
   res.json(req.body);
 };
+
+exports.deleteThing = function(req, res) {
+  console.log("Deleting a thing.");
+  var thingId = req.params.id;
+  Thing.remove({_id: thingId}, function(err, thing) {
+    if (err) return res.send(err);
+  });
+  res.json({ message: 'Deleted' });
+};
