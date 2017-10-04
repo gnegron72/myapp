@@ -5,7 +5,22 @@
         <h1>I love all the things! <span class="badge badge-pill badge-primary" *ngIf="ithings">{{ithings.length}}</span></h1>
     </div>
 
-    <table class="table table-striped">
+    <div class="card mb-2" *ngFor="let thing of ithings">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-11">
+            <h4 class="card-title">{{thing._id}}</h4>
+            <h6 class="card-subtitle">{{thing.name}}</h6>
+            <p class="card-text">{{thing.description}}</p>
+          </div>
+          <div class="col-1 float-right">
+            <i class="material-icons md-18" (click)="deleteThing(thing)">delete</i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--table class="table table-striped">
       <tr>
         <th>ID</th>
         <th>Name</th>
@@ -16,6 +31,6 @@
         <td>{{thing.name}}</td>
         <td>{{thing.description}}</td>
       </tr>
-    </table>
+    </table-->
 
   </div>
