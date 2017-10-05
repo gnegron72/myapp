@@ -1,10 +1,26 @@
 var Thing = require("../models/thing.js");
 
-exports.getThings = function(req, res) {
-  console.log('Getting the things.\n');
-  Thing.find({}, function(err, things) {
+exports.getAllThings = function(req, res) {
+  console.log('Getting all the things.\n');
+
+  if (req.query.q) {
+    Thing.find({name: new RegExp(req.query.q, 'i')}, function(err, things) {
+      if (err) throw err;
+      res.send(things);
+    });
+  } else {
+    Thing.find({}, function(err, things) {
+      if (err) throw err;
+      res.send(things);
+    });
+  }
+};
+
+exports.getThing = function(req, res) {
+  console.log('Getting one thing.\n');
+  Thing.findById(req.params.id, function(err, thing) {
     if (err) throw err;
-    res.send(things);
+    res.send(thing);
   });
 };
 
@@ -24,5 +40,5 @@ exports.deleteThing = function(req, res) {
   Thing.remove({_id: thingId}, function(err, thing) {
     if (err) return res.send(err);
   });
-  res.json({ message: 'Deleted' });
+  res.json({ _id: thingId });
 };

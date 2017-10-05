@@ -3,7 +3,7 @@ import { IThing } from './thing';
 import { ThingService } from './thing.service';
 import { Http , Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+import * as _ from 'underscore';
 
 @Component({
   selector: 'app-root',
@@ -18,12 +18,20 @@ export class AppComponent {
 }
 
   ngOnInit() : void {
-     this._thingService.getThings().subscribe(ithings => this.ithings = ithings);
+     this._thingService.getThings().subscribe(
+       ithings => this.ithings = ithings
+     );
   }
 
 
   deleteThing(thing) : void {
     console.log('deleteThing()');
-    this._thingService.deleteThing(thing);
+    this._thingService.deleteThing(thing).subscribe(
+      ithing => {
+        console.log(ithing);
+        this.ithings.splice(_.indexOf(this.ithings, _.findWhere(this.ithings, { _id : ithing._id})), 1);
+      }
+    );
   }
+
 }
