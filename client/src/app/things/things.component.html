@@ -1,0 +1,3 @@
+<div class="card mb-2" *ngFor="let ithing of ithings">
+  <thing [ithing]="ithing" (thingDeleted)="onThingDeleted(ithing)"></thing>
+</div>

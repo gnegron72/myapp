@@ -1,0 +1,12 @@
+<div class="card-body">
+  <div class="row">
+    <div class="col-11">
+      <h4 class="card-title">{{ithing._id}}</h4>
+      <h6 class="card-subtitle">{{ithing.name}}</h6>
+      <p class="card-text">{{ithing.description}}</p>
+    </div>
+    <div class="col-1 float-right">
+      <i class="material-icons md-18 delete-icon" (click)="deleteThing(ithing)">delete</i>
+    </div>
+  </div>
+</div>
