@@ -9,7 +9,7 @@ import { IThing } from './thing';
 @Injectable()
 export class ThingService {
 
-  private _baseResourceUrl = 'http://192.168.99.100:8080/api/thing';
+  private _baseResourceUrl = '/api/thing';
 
   constructor(private _http: Http){
   }

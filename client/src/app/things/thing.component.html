@@ -1,12 +1,23 @@
 <div class="card-body">
   <div class="row">
-    <div class="col-11">
+    <div class="col-10">
       <h4 class="card-title">{{ithing._id}}</h4>
-      <h6 class="card-subtitle">{{ithing.name}}</h6>
-      <p class="card-text">{{ithing.description}}</p>
     </div>
-    <div class="col-1 float-right">
+    <div class="col-2 float-right">
+      <i class="material-icons md-18">edit</i>
       <i class="material-icons md-18 delete-icon" (click)="deleteThing(ithing)">delete</i>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h6 class="card-subtitle">{{ithing.name}}</h6>
+      <!--input type="text" class="form-control-plaintext" id="name" value="{{ithing.name}}"-->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p class="card-text">{{ithing.description}}</p>
+      <!--input type="text" class="form-control-plaintext" id="description" value="{{ithing.description}}"-->
     </div>
   </div>
 </div>
