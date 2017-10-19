@@ -5,12 +5,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { ThingComponent } from './things/thing.component';
 import { ThingsComponent } from './things/things.component';
+import { InlineEditComponent } from './form/inline-edit/inline-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThingComponent,
-    ThingsComponent
+    ThingsComponent,
+    InlineEditComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http , Response } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
@@ -25,6 +25,20 @@ export class ThingService {
     console.log(url);
 
     return this._http.delete(url)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  updateThing(thing: IThing): Observable<IThing> {
+    let url = this._baseResourceUrl + '/' + thing._id;
+    console.log(url);
+    console.log(thing);
+
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    let body = JSON.stringify(thing);
+
+    return this._http.put(url, body, options)
       .map(this.extractData)
       .catch(this.handleError);
   }

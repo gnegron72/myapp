@@ -7,5 +7,6 @@ router.get('/thing', thingController.getAllThings);
 router.get('/thing/:id', thingController.getThing);
 router.post('/thing', thingController.createThing);
 router.delete('/thing/:id', thingController.deleteThing);
+router.put('/thing/:id', thingController.updateThing);
 
 module.exports = router;

@@ -42,3 +42,13 @@ exports.deleteThing = function(req, res) {
   });
   res.json({ _id: thingId });
 };
+
+exports.updateThing = function(req, res) {
+  console.log("Updating a thing.");
+  var thingId = req.params.id;
+  var body = req.body;
+  Thing.update({_id: thingId}, {$set: body}, function(err, thing) {
+    if (err) return res.send(err);
+  });
+  res.json(req.body);
+};

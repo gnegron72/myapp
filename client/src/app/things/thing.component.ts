@@ -16,7 +16,6 @@ export class ThingComponent implements OnInit {
   constructor(private _thingService: ThingService) {}
 
   ngOnInit() {
-    console.log(this.ithing._id);
   }
 
   deleteThing(thing) : void {
@@ -28,4 +27,14 @@ export class ThingComponent implements OnInit {
       }
     );
   }
+
+  updateThing(thing): void {
+    console.log("in updateThing");
+    this._thingService.updateThing(thing).subscribe(
+      ithing => {
+        console.log(ithing);
+      }
+    );
+  }
+
 }

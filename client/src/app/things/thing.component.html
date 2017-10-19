@@ -13,13 +13,12 @@
   <div class="row">
     <div class="col">
       <h6 class="card-subtitle">{{ithing.name}}</h6>
-      <!--input type="text" class="form-control-plaintext" id="name" value="{{ithing.name}}"-->
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <p class="card-text">{{ithing.description}}</p>
-      <!--input type="text" class="form-control-plaintext" id="description" value="{{ithing.description}}"-->
+      <!--p class="card-text">{{ithing.description}}</p-->
+      <app-inline-edit [(ngModel)]="ithing.description" (change)="updateThing(ithing)" label="" [required]="true" type="text"></app-inline-edit>
     </div>
   </div>
 </div>

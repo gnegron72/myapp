@@ -24,5 +24,4 @@ export class ThingsComponent implements OnInit {
     this.ithings.splice(_.indexOf(this.ithings, _.findWhere(this.ithings, { _id : ithing._id})), 1);
   }
 
-
 }
