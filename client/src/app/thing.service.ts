@@ -16,7 +16,7 @@ export class ThingService {
 
   getThings(): Observable<IThing[]> {
     return this._http.get(this._baseResourceUrl)
-      .map((response: Response) => <IThing[]> response.json())
+      .map((response: Response) => <IThing[]> response.json().docs)
       .do(data => console.log(JSON.stringify(data)));
   }
 

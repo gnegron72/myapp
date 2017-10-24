@@ -1,19 +1,28 @@
 var Thing = require("../models/thing.js");
+var options = {limit: 5};
 
 exports.getAllThings = function(req, res) {
   console.log('Getting all the things.\n');
+  let query = {};
 
   if (req.query.q) {
-    Thing.find({name: new RegExp(req.query.q, 'i')}, function(err, things) {
-      if (err) throw err;
-      res.send(things);
-    });
-  } else {
-    Thing.find({}, function(err, things) {
-      if (err) throw err;
-      res.send(things);
-    });
+    query = {name: new RegExp(req.query.q, 'i')};
   }
+
+  if (req.query.p) {
+    options.page = parseInt(req.query.p);
+  }
+
+  if (req.query.l) {
+    options.limit = parseInt(req.query.l);
+  }
+
+  console.log(options);
+
+  Thing.paginate(query, options, function(err, things) {
+    if (err) throw err;
+    res.send(things);
+  });
 };
 
 exports.getThing = function(req, res) {
