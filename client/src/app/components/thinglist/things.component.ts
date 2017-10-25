@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IThing } from '../thing';
-import { ThingService } from '../thing.service';
+import { IThing } from '../../models/thing';
+import { ThingService } from '../../services/thing.service';
 import * as _ from 'underscore';
 
 @Component({
@@ -9,6 +9,7 @@ import * as _ from 'underscore';
   styleUrls: ['./things.component.css'],
   providers: [ThingService]
 })
+
 export class ThingsComponent implements OnInit {
 
   ithings: IThing[];

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
-import { IThing } from './thing';
+import { IThing } from '../models/thing';
 
 @Injectable()
 export class ThingService {
@@ -22,7 +22,6 @@ export class ThingService {
 
   deleteThing(thing: IThing): Observable<IThing> {
     let url = this._baseResourceUrl + '/' + thing._id;
-    console.log(url);
 
     return this._http.delete(url)
       .map(this.extractData)
@@ -31,8 +30,6 @@ export class ThingService {
 
   updateThing(thing: IThing): Observable<IThing> {
     let url = this._baseResourceUrl + '/' + thing._id;
-    console.log(url);
-    console.log(thing);
 
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });

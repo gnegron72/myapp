@@ -1,6 +1,6 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
-import { IThing } from '../thing';
-import { ThingService } from '../thing.service';
+import { IThing } from '../../models/thing';
+import { ThingService } from '../../services/thing.service';
 import * as _ from 'underscore';
 
 @Component({
@@ -19,7 +19,6 @@ export class ThingComponent implements OnInit {
   }
 
   deleteThing(thing) : void {
-    console.log('deleteThing()');
     this._thingService.deleteThing(thing).subscribe(
       ithing => {
         console.log(ithing);
@@ -29,7 +28,6 @@ export class ThingComponent implements OnInit {
   }
 
   updateThing(thing): void {
-    console.log("in updateThing");
     this._thingService.updateThing(thing).subscribe(
       ithing => {
         console.log(ithing);
