@@ -6,6 +6,7 @@ import { AppComponent } from './components/app.component';
 import { ThingComponent } from './components/thing/thing.component';
 import { ThingsComponent } from './components/thinglist/things.component';
 import { InlineEditComponent } from './components/inline-edit/inline-edit.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { InlineEditComponent } from './components/inline-edit/inline-edit.compon
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
