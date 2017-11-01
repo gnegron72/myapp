@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IThing } from '../../models/thing';
+import { Thing } from '../../models/thing';
 import { ThingService } from '../../services/thing.service';
 import * as _ from 'underscore';
 
@@ -12,17 +12,17 @@ import * as _ from 'underscore';
 
 export class ThingsComponent implements OnInit {
 
-  ithings: IThing[];
+  things: Thing[];
   constructor(private _thingService: ThingService) {}
 
   ngOnInit() : void {
      this._thingService.getThings().subscribe(
-       ithings => this.ithings = ithings
+       things => this.things = things
      );
   }
 
-  onThingDeleted(ithing) : void {
-    this.ithings.splice(_.indexOf(this.ithings, _.findWhere(this.ithings, { _id : ithing._id})), 1);
+  onThingDeleted(thing) : void {
+    this.things.splice(_.indexOf(this.things, _.findWhere(this.things, { _id : thing._id})), 1);
   }
 
 }

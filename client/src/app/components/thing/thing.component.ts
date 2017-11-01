@@ -1,5 +1,5 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
-import { IThing } from '../../models/thing';
+import { Thing } from '../../models/thing';
 import { ThingService } from '../../services/thing.service';
 import * as _ from 'underscore';
 
@@ -10,7 +10,7 @@ import * as _ from 'underscore';
   providers: [ThingService]
 })
 export class ThingComponent implements OnInit {
-  @Input() ithing: IThing;
+  @Input() thing: Thing;
   @Output() thingDeleted: EventEmitter<any> = new EventEmitter();
 
   constructor(private _thingService: ThingService) {}
@@ -18,10 +18,10 @@ export class ThingComponent implements OnInit {
   ngOnInit() {
   }
 
-  deleteThing(thing) : void {
-    this._thingService.deleteThing(thing).subscribe(
-      ithing => {
-        console.log(ithing);
+  deleteThing() : void {
+    this._thingService.deleteThing(this.thing).subscribe(
+      thing => {
+        console.log(thing);
         this.thingDeleted.emit();
       }
     );
@@ -29,8 +29,8 @@ export class ThingComponent implements OnInit {
 
   updateThing(thing): void {
     this._thingService.updateThing(thing).subscribe(
-      ithing => {
-        console.log(ithing);
+      thing => {
+        console.log(thing);
       }
     );
   }

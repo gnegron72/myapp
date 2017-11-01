@@ -1,23 +1,23 @@
 <div class="card-body">
   <div class="row">
     <div class="col-10">
-      <h4 class="card-title">{{ithing._id}}</h4>
+      <h4 class="card-title">{{thing._id}}</h4>
     </div>
     <div class="col-2">
       <div class="float-right">
-        <i class="material-icons md-18 delete-icon" (click)="deleteThing(ithing)">delete</i>
+        <i class="material-icons md-18 delete-icon" (click)="deleteThing()">delete</i>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <h6 class="card-subtitle">{{ithing.name}}</h6>
+      <h6 class="card-subtitle">{{thing.name}}</h6>
     </div>
   </div>
   <div class="row">
     <div class="col">
       <!--p class="card-text">{{ithing.description}}</p-->
-      <app-inline-edit [(ngModel)]="ithing.description" (change)="updateThing(ithing)" label="" [required]="true" type="text"></app-inline-edit>
+      <app-inline-edit [(ngModel)]="thing.description" (change)="updateThing(thing)" label="" [required]="true" type="text"></app-inline-edit>
     </div>
   </div>
 </div>

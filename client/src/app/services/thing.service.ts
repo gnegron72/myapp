@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
-import { IThing } from '../models/thing';
+import { Thing } from '../models/thing';
 
 @Injectable()
 export class ThingService {
@@ -14,13 +14,14 @@ export class ThingService {
   constructor(private _http: Http){
   }
 
-  getThings(): Observable<IThing[]> {
+  getThings(): Observable<Thing[]> {
     return this._http.get(this._baseResourceUrl)
-      .map((response: Response) => <IThing[]> response.json().docs)
+      .map((response: Response) => <Thing[]> response.json().docs)
       .do(data => console.log(JSON.stringify(data)));
   }
 
-  deleteThing(thing: IThing): Observable<IThing> {
+  deleteThing(thing: Thing): Observable<Thing> {
+    console.log(thing);
     let url = this._baseResourceUrl + '/' + thing._id;
 
     return this._http.delete(url)
@@ -28,7 +29,7 @@ export class ThingService {
       .catch(this.handleError);
   }
 
-  updateThing(thing: IThing): Observable<IThing> {
+  updateThing(thing: Thing): Observable<Thing> {
     let url = this._baseResourceUrl + '/' + thing._id;
 
     let headers = new Headers({ 'Content-Type': 'application/json' });
