@@ -15,7 +15,7 @@ services:
     links:
       - db
   client:
-    build: ./client
+    build: ./client5
     ports:
       - "4200:4200"
     links:
